@@ -14,3 +14,4 @@
 
 *.pro.user
 generated/*
+deploy/*

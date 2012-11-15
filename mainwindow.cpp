@@ -438,7 +438,7 @@ void MainWindow::saveTilesAs(void)
     QListIterator<QByteArray> formats(QImageWriter::supportedImageFormats());
     while (formats.hasNext())
         suffixes += " *." + formats.next();
-    const QString& filename = QFileDialog::getSaveFileName(this, tr("Save tiles as image"), QString(), tr("Image files (%1)").arg(suffixes));
+    const QString& filename = QFileDialog::getSaveFileName(this, tr("Save image"), QString(), tr("Image files (%1)").arg(suffixes));
     if (filename.isEmpty())
         return;
     saveTiles(filename);
@@ -454,7 +454,8 @@ void MainWindow::saveTiles(const QString& filename)
         QSvgGenerator generator;
         generator.setFileName(filename);
         generator.setTitle(tr("Generated with %1").arg(QFileInfo(mScriptFilename).baseName()));
-        generator.setDescription(tr("Generated with `randomtiling`. Copyright (c) 2012 Oliver Lau, Heise Zeitschriften Verlag. See https://code.google.com/p/randomtiling/ for more info."));
+        generator.setDescription(tr("Generated with `%1 %2%3`. Copyright (c) 2012 Oliver Lau, Heise Zeitschriften Verlag. See %4 for more info.")
+                                 .arg(AppName).arg(AppVersion).arg(AppMinorVersion).arg(AppUrl));
         generator.setSize(QSize(w, h));
         generator.setViewBox(QRectF(0, 0, w, h));
         QPainter painter(&generator);

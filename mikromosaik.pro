@@ -58,7 +58,8 @@ FORMS += mainwindow.ui
 
 RESOURCES += \
     scripts.qrc \
-    images.qrc
+    images.qrc \
+    translations.qrc
 
 OTHER_FILES += \
     scripts/default.js \

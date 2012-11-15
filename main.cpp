@@ -22,6 +22,18 @@ const QString AppVersion = AppVersionNoDebug + AppMinorVersion + " [DEBUG]";
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setOrganizationName(Company);
+    a.setOrganizationDomain(Company);
+    a.setApplicationName(AppName);
+    a.setApplicationVersion(AppVersionNoDebug);
+    QTranslator translator;
+    bool ok = translator.load(":/translations/mikromosaik_" + QLocale::system().name());
+#ifndef QT_NO_DEBUG
+    if (!ok)
+        qWarning() << "Could not load translations for" << QLocale::system().name() << "locale";
+#endif
+    if (ok)
+        a.installTranslator(&translator);
     MainWindow w;
     w.show();
     return a.exec();
