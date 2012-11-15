@@ -4,8 +4,8 @@ const MAX_TRIALS = 1000;
 var A = 0.4;
 
 var Sx, Sy;
-var i = 0; // wird im C++-Code nach jedem erfolgreich platzieren Element inkrementiert
-var H, W; // Breite und Höhe der Grafik kommt aus dem C++-Code
+var i = 0; // wird im C++-Code nach jedem erfolgreich platzierten Element inkrementiert
+var H, W; // Breite und Höhe der Grafik kommen aus dem C++-Code
 
 var Aspect = W / H;
 
