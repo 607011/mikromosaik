@@ -10,8 +10,8 @@ Literatur
 
 * John Shier: <a href="https://github.com/downloads/ola-ct/mikromosaik/Filling%20Space%20with%20Random%20Fractal%20Non-Overlapping%20Simple%20Shapes.pdf">Filling Space with Random Fractal Non-Overlapping Simple Shapes</a> (PDF)
 
-Lizenz
-------
+Nutzungshinweise und Lizenz
+---------------------------
 
 Copyright (c) 2012 Oliver Lau &lt;ola@ct.de&gt;, <a href="http://www.heise.de/">Heise Zeitschriften Verlag</a>.
 
@@ -19,4 +19,4 @@ Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU
 
 Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe http://www.gnu.org/licenses/gpl-3.0 
 
-Diese Software wurde zu Lehr- und Demonstrationszwecken geschaffen und ist nicht für den produktiven Einsatz vorgesehen. Der Autor und der Heise Zeitschriften Verlag haften nicht für eventuelle Schäden, die aus der Nutzung der Software entstehen, und übernehmen keine Gewähr für ihre Vollständigkeit, Fehlerfreiheit und Eignung für einen bestimmten Zweck.
+__Diese Software wurde zu Lehr- und Demonstrationszwecken programmiert und ist nicht für den produktiven Einsatz vorgesehen. Der Autor und der Heise Zeitschriften Verlag haften nicht für eventuelle Schäden, die aus der Nutzung der Software entstehen, und übernehmen keine Gewähr für ihre Vollständigkeit, Fehlerfreiheit und Eignung für einen bestimmten Zweck.__
