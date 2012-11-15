@@ -53,7 +53,7 @@ QScriptValue BrushClass::constructor(void)
 }
 
 
-QScriptValue BrushClass::construct(QScriptContext* ctx, QScriptEngine* engine)
+QScriptValue BrushClass::construct(QScriptContext* ctx, QScriptEngine*)
 {
     BrushClass* cls = qscriptvalue_cast<BrushClass*>(ctx->callee().data());
     if (!cls)
@@ -69,9 +69,8 @@ QScriptValue BrushClass::construct(QScriptContext* ctx, QScriptEngine* engine)
             qDebug() << "QBrush(const QBrush&)";
             return cls->newInstance(qscriptvalue_cast<QBrush>(arg));
         }
-        else if (arg.instanceOf(qScriptValueFromValue(engine, QImage()))) {
-            // QBrush(const QImage&)
-            qDebug() << "QBrush(const QImage&)";
+        else if (true) {
+            // qDebug() << "QBrush(const QImage&)" << arg.data().toString();
             return cls->newInstance(qscriptvalue_cast<QImage>(arg));
         }
         break;

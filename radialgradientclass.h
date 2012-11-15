@@ -43,7 +43,7 @@ private:
 };
 
 
-class RadialGradientPrototype : public QObject, public QScriptable
+class RadialGradientPrototype : public GradientPrototype
 {
     Q_OBJECT
     Q_PROPERTY(QPointF center READ center WRITE setCenter)
@@ -54,7 +54,7 @@ class RadialGradientPrototype : public QObject, public QScriptable
 
 public:
     RadialGradientPrototype(QObject* parent = NULL)
-        : QObject(parent)
+        : GradientPrototype(parent)
     { /* ... */ }
     ~RadialGradientPrototype() { /* ... */ }
 

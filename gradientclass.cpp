@@ -21,6 +21,7 @@ GradientClass::GradientClass(QScriptEngine* engine)
                                 QScriptEngine::SkipMethodsInEnumeration
                                 | QScriptEngine::ExcludeSuperClassMethods
                                 | QScriptEngine::ExcludeSuperClassProperties);
+    engine->setDefaultPrototype(qMetaTypeId<QGradient*>(), mProto);
     const QScriptValue& global = engine->globalObject();
     mProto.setPrototype(global.property("Object").property("prototype"));
     mCtor = engine->newFunction(construct, mProto);
@@ -84,19 +85,6 @@ QScriptValue GradientClass::newInstance(const QGradient& g)
  * GradientPrototype
  *
  *******************************************/
-
-
-GradientPrototype::GradientPrototype(QObject* parent)
-    : QObject(parent)
-{
-    /* ... */
-}
-
-
-GradientPrototype::~GradientPrototype()
-{
-    /* ... */
-}
 
 
 void GradientPrototype::setColorAt(qreal position, const QColor& color)

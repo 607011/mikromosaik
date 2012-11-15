@@ -135,11 +135,13 @@ class GradientPrototype : public QObject, public QScriptable
     Q_OBJECT
     Q_PROPERTY(QGradient::CoordinateMode coordinateMode READ coordinateMode WRITE setCoordinateMode)
     Q_PROPERTY(QGradient::Spread spread READ spread WRITE setSpread)
-    Q_PROPERTY(QGradient::Type type)
+    Q_PROPERTY(QGradient::Type type)    
 
 public:
-    GradientPrototype(QObject* parent = NULL);
-    ~GradientPrototype();
+    GradientPrototype(QObject* parent = NULL)
+        : QObject(parent)
+    { /* ... */ }
+    ~GradientPrototype() { /* ... */ }
 
 public slots:
     void setColorAt(qreal position, const QColor& color);

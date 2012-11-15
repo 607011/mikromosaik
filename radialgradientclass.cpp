@@ -15,11 +15,8 @@ RadialGradientClass::RadialGradientClass(QScriptEngine* engine)
     : GradientClass(engine)
 {
     qScriptRegisterMetaType<QRadialGradient>(engine, toScriptValue, fromScriptValue);
-    mProto = engine->newQObject(new RadialGradientPrototype(this),
-                                QScriptEngine::QtOwnership,
-                                QScriptEngine::SkipMethodsInEnumeration
-                                | QScriptEngine::ExcludeSuperClassMethods
-                                | QScriptEngine::ExcludeSuperClassProperties);
+    mProto = engine->newQObject(new RadialGradientPrototype(this));
+    engine->setDefaultPrototype(qMetaTypeId<QRadialGradient*>(), mProto);
     const QScriptValue& global = engine->globalObject();
     mProto.setPrototype(global.property("Gradient").property("prototype"));
     mCtor = engine->newFunction(construct, mProto);

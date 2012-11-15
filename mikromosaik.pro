@@ -73,4 +73,5 @@ OTHER_FILES += \
     scripts/imagebrush.js \
     scripts/red-cross.js \
     scripts/randomly-colored-and-rotated-dark-rectangles.js \
-    scripts/gradient.js
+    scripts/gradient.js \
+    README.md
