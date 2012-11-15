@@ -6,8 +6,8 @@
 #include "main.h"
 
 const QString Company = "c't";
-const QString AppName = "Random Space Filling";
-const QString AppUrl = "https://code.google.com/p/randomtiling/";
+const QString AppName = "Mikro Mosaik";
+const QString AppUrl = "https://github.com/ola-ct/mikromosaik";
 const QString AppAuthor = "Oliver Lau";
 const QString AppAuthorMail = "ola@ct.de";
 const QString AppVersionNoDebug = "0.2";

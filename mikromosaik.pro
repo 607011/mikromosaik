@@ -2,10 +2,16 @@
 
 QT += core gui script scripttools svg
 
+CONFIG += warn_on thread qt
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = randomtiling
+TARGET = mikromosaik
 TEMPLATE = app
+
+TRANSLATIONS = mikromosaik_de.ts
+
+CODECFORTR = UTF-8
 
 SOURCES += \
     main.cpp \
