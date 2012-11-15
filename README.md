@@ -8,8 +8,7 @@ Literatur
 
 * Paul Bourke, Random space filling tiling of the plane: http://paulbourke.net/texture_colour/randomtile/
 
-* John Shier, Hyperseeing, summer 2011 issue, pp. 131-140, herausgegeben von der International Society
-of the Arts, Mathematics, and Architecture: <a href="https://github.com/downloads/ola-ct/mikromosaik/Filling%20Space%20with%20Random%20Fractal%20Non-Overlapping%20Simple%20Shapes.pdf">Filling Space with Random Fractal Non-Overlapping Simple Shapes</a> (PDF)
+* John Shier: <a href="https://github.com/downloads/ola-ct/mikromosaik/Filling%20Space%20with%20Random%20Fractal%20Non-Overlapping%20Simple%20Shapes.pdf">Filling Space with Random Fractal Non-Overlapping Simple Shapes</a> (PDF)
 
 Lizenz
 ------
