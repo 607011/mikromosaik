@@ -165,6 +165,12 @@ qreal PainterPathPrototype::length(void) const
 }
 
 
+QPainterPath PainterPathPrototype::subtracted(const QPainterPath& p) const
+{
+    return thisPainterPath()->subtracted(p);
+}
+
+
 QPainterPath* PainterPathPrototype::thisPainterPath() const
 {
     return qscriptvalue_cast<QPainterPath*>(thisObject().data());

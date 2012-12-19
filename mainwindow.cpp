@@ -45,21 +45,21 @@ MainWindow::MainWindow(QWidget* parent)
     QObject::connect(&mKineticScroller, SIGNAL(scrollBy(const QPoint&)), SLOT(scrollBy(const QPoint&)));
     QObject::connect(&mKineticScroller, SIGNAL(zoomBy(qreal, const QPoint&)), SLOT(zoomBy(qreal, const QPoint&)));
 
-    QScriptValue m = mScriptThread.engine().newQObject(this);
-    mScriptThread.engine().globalObject().setProperty("MainWindow", m);
+    QScriptValue m = mScriptRunner.engine().newQObject(this);
+    mScriptRunner.engine().globalObject().setProperty("MainWindow", m);
 
-    QObject::connect(&mScriptThread, SIGNAL(tilingProgressed(QVector<Stroke>, int)), SLOT(tilingProgressed(const QVector<Stroke>&, int)), Qt::BlockingQueuedConnection);
-    QObject::connect(&mScriptThread, SIGNAL(debug(QString)), SLOT(debug(const QString&)), Qt::BlockingQueuedConnection);
-    QObject::connect(&mScriptThread, SIGNAL(finished()), SLOT(tileThreadFinished()));
-    QObject::connect(&mScriptThread, SIGNAL(backgroundBrushChanged(const QBrush&)), SLOT(setBackgroundBrush(const QBrush&)));
+    QObject::connect(&mScriptRunner, SIGNAL(tilingProgressed(const QVector<Stroke>&, int)), SLOT(tilingProgressed(const QVector<Stroke>&, int)), Qt::BlockingQueuedConnection);
+    QObject::connect(&mScriptRunner, SIGNAL(debug(QString)), SLOT(debug(const QString&)), Qt::BlockingQueuedConnection);
+    QObject::connect(&mScriptRunner, SIGNAL(finished()), SLOT(tileThreadFinished()));
+    QObject::connect(&mScriptRunner, SIGNAL(backgroundBrushChanged(const QBrush&)), SLOT(setBackgroundBrush(const QBrush&)));
     QObject::connect(ui->runStopPushButton, SIGNAL(clicked()), SLOT(runStopScript()));
     QObject::connect(ui->actionShowLineNumbers, SIGNAL(toggled(bool)), &mEditor, SLOT(setLineNumbersVisible(bool)));
     QObject::connect(ui->actionBracketMatching, SIGNAL(toggled(bool)), &mEditor, SLOT(setBracketsMatchingEnabled(bool)));
     QObject::connect(ui->actionTextWrap, SIGNAL(toggled(bool)), &mEditor, SLOT(setTextWrapEnabled(bool)));
     QObject::connect(ui->actionCodeFolding, SIGNAL(toggled(bool)), &mEditor, SLOT(setCodeFoldingEnabled(bool)));
-    QObject::connect(ui->actionTileMode, SIGNAL(toggled(bool)), &mScriptThread, SLOT(setTileMode(bool)));
-    QObject::connect(ui->widthSpinBox, SIGNAL(valueChanged(int)), &mScriptThread, SLOT(setDrawingWidth(int)));
-    QObject::connect(ui->heightSpinBox, SIGNAL(valueChanged(int)), &mScriptThread, SLOT(setDrawingHeight(int)));
+    QObject::connect(ui->actionTileMode, SIGNAL(toggled(bool)), &mScriptRunner, SLOT(setTileMode(bool)));
+    QObject::connect(ui->widthSpinBox, SIGNAL(valueChanged(int)), &mScriptRunner, SLOT(setDrawingWidth(int)));
+    QObject::connect(ui->heightSpinBox, SIGNAL(valueChanged(int)), &mScriptRunner, SLOT(setDrawingHeight(int)));
     QObject::connect(ui->actionNewScript, SIGNAL(triggered()), SLOT(newScript()));
     QObject::connect(ui->actionOpenScript, SIGNAL(triggered()), SLOT(openScript()));
     QObject::connect(ui->actionSaveScript, SIGNAL(triggered()), SLOT(saveScript()));
@@ -120,8 +120,9 @@ void MainWindow::updateEditorWindowTitle(void)
 
 void MainWindow::scriptChanged(void)
 {
+    if (!mDirty)
+        updateEditorWindowTitle();
     mDirty = true;
-    updateEditorWindowTitle();
 }
 
 
@@ -172,7 +173,7 @@ void MainWindow::saveSettings(void)
 void MainWindow::closeEvent(QCloseEvent* e)
 {
     saveSettings();
-    mScriptThread.stop();
+    mScriptRunner.stop();
     checkDirtyScript();
     e->accept();
 }
@@ -278,14 +279,14 @@ void MainWindow::tileThreadFinished(void)
     ui->runStopPushButton->setText(tr("Run"));
     ui->progressBar->setValue(0);
     ui->progressBar->setEnabled(false);
-    mScriptThread.engine().collectGarbage();
+    mScriptRunner.engine().collectGarbage();
 }
 
 
 void MainWindow::startTiling(void)
 {
-    if (!mScriptThread.isRunning()) {
-        mScriptThread.resume();
+    if (!mScriptRunner.isRunning()) {
+        mScriptRunner.resume();
         ui->progressBar->setEnabled(true);
     }
 }
@@ -298,7 +299,7 @@ void MainWindow::runStopScript(void)
             debug(tr("Empty script. Doing nothing."));
             return;
         }
-        QScriptEngine& engine = mScriptThread.engine();
+        QScriptEngine& engine = mScriptRunner.engine();
         QScriptValue& globals = engine.globalObject();
         // QScriptEngine vergisst keine globalen Objekte aus vorigen Evaluierungen.
         // Deshalb kann es vorkommen, dass etwa getBrush() noch existiert, obwohl
@@ -327,7 +328,7 @@ void MainWindow::runStopScript(void)
         }
     }
     else {
-        mScriptThread.stop();
+        mScriptRunner.stop();
     }
 }
 
@@ -512,7 +513,7 @@ void MainWindow::about(void)
     QMessageBox::about(this, tr("About %1 %2%3").arg(AppName).arg(AppVersionNoDebug).arg(AppMinorVersion),
                        tr("<p><b>%1</b> demonstrates how Qt programs can be controlled by QtScript. "
                           "See <a href=\"%2\" title=\"%1 project homepage\">%2</a> for more info.</p>"
-                          "<p>Copyright &copy; 2012 %3 &lt;%4&gt;</p>"
+                          "<p>Copyright &copy; 2012 %3 &lt;%4&gt;, Heise Zeitschriften Verlag.</p>"
                           "<p>This program is free software: you can redistribute it and/or modify "
                           "it under the terms of the GNU General Public License as published by "
                           "the Free Software Foundation, either version 3 of the License, or "

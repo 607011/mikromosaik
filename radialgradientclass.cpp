@@ -18,6 +18,7 @@ RadialGradientClass::RadialGradientClass(QScriptEngine* engine)
     mProto = engine->newQObject(new RadialGradientPrototype(this));
     engine->setDefaultPrototype(qMetaTypeId<QRadialGradient*>(), mProto);
     const QScriptValue& global = engine->globalObject();
+    // http://www.qtcentre.org/threads/47245-QtScript-Prototype-based-inheritance-wrappers-and-setDefaultPrototype()
     mProto.setPrototype(global.property("Gradient").property("prototype"));
     mCtor = engine->newFunction(construct, mProto);
     mCtor.setData(engine->toScriptValue(this));

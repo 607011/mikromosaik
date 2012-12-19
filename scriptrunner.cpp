@@ -180,7 +180,7 @@ void ScriptRunner::run(void)
         bool colliding = true;
         while (!mStopped && colliding && numTrials < MAX_TRIALS) {
             ++numTrials;
-            Stroke stroke(DefaultBrush[mDrawing.size() % 3]);
+            Stroke stroke(DefaultBrush[numElements % 3]);
             const qreal x0 = RAND::rnd1();
             const qreal y0 = RAND::rnd1();
             QScriptValueList vXYArgs;

@@ -74,4 +74,6 @@ OTHER_FILES += \
     scripts/red-cross.js \
     scripts/randomly-colored-and-rotated-dark-rectangles.js \
     scripts/gradient.js \
-    README.md
+    README.md \
+    scripts/donuts.js \
+    scripts/arrows.js

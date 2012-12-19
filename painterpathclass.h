@@ -61,6 +61,7 @@ public slots:
     void quadTo(qreal cx, qreal cy, qreal endPointX, qreal endPointY);
     void cubicTo(qreal c1X, qreal c1Y, qreal c2X, qreal c2Y, qreal endPointX, qreal endPointY);
     qreal length(void) const;
+    QPainterPath subtracted(const QPainterPath&) const;
 
 private:
     QPainterPath* thisPainterPath(void) const;

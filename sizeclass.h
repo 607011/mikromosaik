@@ -58,8 +58,8 @@ public slots:
     void setWidth(qreal w);
     void setHeight(qreal h);
     void transpose(void);
-    QSizeF boundedTo(const QSizeF & otherSize) const;
-    QSizeF expandedTo(const QSizeF & otherSize) const;
+    QSizeF boundedTo(const QSizeF& otherSize) const;
+    QSizeF expandedTo(const QSizeF& otherSize) const;
     qreal width(void) const;
     qreal height(void) const;
 

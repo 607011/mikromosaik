@@ -29,7 +29,7 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
     explicit MainWindow(QWidget* parent = NULL);
     ~MainWindow();
@@ -41,7 +41,7 @@ protected:
 
 private:
     Ui::MainWindow *ui;
-    ScriptRunner mScriptThread;
+    ScriptRunner mScriptRunner;
     QString mScriptFilename;
     QImage mImage;
     JSEdit mEditor;
