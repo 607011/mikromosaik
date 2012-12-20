@@ -52,8 +52,8 @@ public:
     ~PointPrototype();
 
 public slots:
-    void setX(qreal x);
-    void setY(qreal x);
+    void setX(qreal);
+    void setY(qreal);
     qreal x(void) const;
     qreal y(void) const;
 

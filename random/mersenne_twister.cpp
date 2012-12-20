@@ -1,4 +1,4 @@
-// Copyright (c) 2008-2012 Oliver Lau <oliver@von-und-fuer-lau.de>
+// Copyright (c) 2008-2012 Oliver Lau <ola@ct.de>
 // Alle Rechte vorbehalten.
 
 #include "mersenne_twister.h"
