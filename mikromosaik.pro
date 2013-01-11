@@ -62,6 +62,7 @@ RESOURCES += \
     translations.qrc
 
 OTHER_FILES += \
+    README.md \
     scripts/default.js \
     scripts/triangles.js \
     scripts/rotate.js \
@@ -74,6 +75,10 @@ OTHER_FILES += \
     scripts/red-cross.js \
     scripts/randomly-colored-and-rotated-dark-rectangles.js \
     scripts/gradient.js \
-    README.md \
     scripts/donuts.js \
     scripts/arrows.js
+
+
+win32 {
+RC_FILE = mikromosaik.rc
+}

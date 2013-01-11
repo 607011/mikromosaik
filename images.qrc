@@ -3,4 +3,7 @@
         <file alias="Lego-Tactical-Guy.jpg">images/Lego-Tactical-Guy.jpg</file>
         <file alias="Pilzmaennchen.png">images/Pilzmaennchen.png</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>icons/mikromosaik-16x16.png</file>
+    </qresource>
 </RCC>

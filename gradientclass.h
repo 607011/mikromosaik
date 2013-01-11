@@ -135,7 +135,7 @@ class GradientPrototype : public QObject, public QScriptable
     Q_OBJECT
     Q_PROPERTY(QGradient::CoordinateMode coordinateMode READ coordinateMode WRITE setCoordinateMode)
     Q_PROPERTY(QGradient::Spread spread READ spread WRITE setSpread)
-    Q_PROPERTY(QGradient::Type type)    
+    Q_PROPERTY(QGradient::Type type READ type)
 
 public:
     GradientPrototype(QObject* parent = NULL)
