@@ -1,7 +1,7 @@
 Mikro Mosaik
 ===========
 
-Die Software _Mikro Mosaik_ zeigt am Beispiel eines Random-Space-Filling-Algorithmus, wie man mit <a href="http://doc.qt.digia.com/4.8-snapshot/scripting.html">QtScript</a> <a href="http://qt-project.org/">Qt</a>-Anwendungen steuert.
+Die Software _Mikro Mosaik_ zeigt am Beispiel eines Random-Space-Filling-Algorithmus, wie man mit <a href="http://qt-project.org/doc/qt-5/qtscript-index.html">QtScript</a> <a href="http://qt-project.org/">Qt</a>-Anwendungen steuert.
 
 Literatur
 ---------
