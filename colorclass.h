@@ -15,6 +15,8 @@
 
 class ColorClass : public QObject, public QScriptClass
 {
+    Q_OBJECT
+
 public:
     ColorClass(QScriptEngine* engine = NULL);
     ~ColorClass();

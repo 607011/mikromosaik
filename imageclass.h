@@ -14,6 +14,8 @@
 
 class ImageClass : public QObject, public QScriptClass
 {
+    Q_OBJECT
+
 public:
     ImageClass(QScriptEngine* engine = NULL);
     ~ImageClass();

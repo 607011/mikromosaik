@@ -14,7 +14,7 @@
 #include <QStringListIterator>
 #include <QByteArray>
 #include <QBuffer>
-#include <QtGui/QMessageBox>
+#include <QMessageBox>
 #include <QSvgGenerator>
 
 #include "mainwindow.h"

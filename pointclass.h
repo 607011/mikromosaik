@@ -15,6 +15,8 @@
 
 class PointClass : public QObject, public QScriptClass
 {
+    Q_OBJECT
+
 public:
     PointClass(QScriptEngine* engine = NULL);
     ~PointClass();

@@ -17,6 +17,8 @@
 
 class PainterPathClass : public QObject, public QScriptClass
 {
+    Q_OBJECT
+
 public:
     PainterPathClass(QScriptEngine* engine = NULL);
     ~PainterPathClass();

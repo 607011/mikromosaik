@@ -15,6 +15,8 @@
 
 class SizeClass : public QObject, public QScriptClass
 {
+    Q_OBJECT
+
 public:
     SizeClass(QScriptEngine* engine = NULL);
     ~SizeClass();

@@ -15,6 +15,8 @@
 
 class BrushClass : public QObject, public QScriptClass
 {
+    Q_OBJECT
+
 public:
     BrushClass(QScriptEngine* engine = NULL);
     ~BrushClass();
